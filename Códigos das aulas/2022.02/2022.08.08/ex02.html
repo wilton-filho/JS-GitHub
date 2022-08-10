@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        nota1 = parseFloat(prompt("Informe a nota1 (0 e 50) "));
+        while (nota1 < 0 || nota1 > 50 || isNaN(nota1)) {
+            nota1 = parseFloat(prompt("Nota inválida. Favor inserir uma nota entre 0 e 50"))
+        }
+
+        nota2 = parseFloat(prompt("Informe a nota2 (0 e 50) "));
+        while (nota2 < 0 || nota2 > 50 || isNaN(nota2)) {
+            nota2 = parseFloat(prompt("Nota inválida. Favor inserir uma nota entre 0 e 50"))
+        }
+
+        total = nota1 + nota2;
+
+        if (total >= 60) { 
+            alert("aprovado")
+        }
+        else alert("reprovado"); 
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
