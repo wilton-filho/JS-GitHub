@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    // 1) Fundamentos básicos sobre vetor
+    //------------------------------------------------------------------------------------
+    idades = new Array();
+    idades = [];
+    idades[0] = 10;
+    idades[1] = 20;
+    idades[2] = 30;
+    idades[3] = 40;
+    idades[4] = 50;
+    console.log(idades);
+
+    // 2) Fundamento: uso do pós-incremento (i++) e pré-incremento (++i)
+    //------------------------------------------------------------------------------------
+    i = 0;
+    //Ex: uso do operador de pós-incremento
+    i++; // o valor de i será alterado para 1
+    console.log(`Valor atual = ${i++}`); // i sera incrementado APOS a execução da instrução console.log. Portanto, a mensagem será "Valor atual = 0"
+    console.log(`Valor atual = ${i}`); // o valor de i foi incrementado acima, portanto o resultado agora será "Valor atual = 1"
+
+    // Ex: pré-incremento
+    i = 0;
+    //Ex: uso do operador de pós-incremento
+    console.log(`Valor atual = ${++i}`); // i sera incrementado ANTES da execução da instrução console.log. Portanto, a mensagem será "Valor atual = 1"
+    console.log(`Valor atual = ${i}`); // o valor de i foi incrementado acima, portanto o resultado agora será "Valor atual = 1"
+
+    // 3) Fundamento: operador ternário
+    //------------------------------------------------------------------------------------
+    // Ex usando o if (composto)
+    idade = 17;
+    if (idade >= 18)
+        alert("Pode tirar carteira!");
+    else
+        alert("Não pode tirar carteira!");
+    
+    // Reescrevendo o código acima utilizando o operador ternário
+    (idade >= 18)?alert("Pode tirar carteira!"):alert("Não pode tirar carteira!");
+
+    //Estutura do operador ternario
+    //()?____:____;
+    
+    // If simples
+    // if ()
+    //     alert("asdfasdf")
+
+    // If encadeado
+    // if ()
+    //     alert()
+    // else if () { alert}
+    //      else ...
+    
+    // Ex: Par ou impar usando operador ternário
+    nro = parseInt(prompt("Digite um numero inteiro positivo (>0):"));
+    (nro % 2 == 0)?alert("Par"):alert("Ímpar");
+
+    // 4 e 5) Fundamentos: switch e classe Date()
+    //------------------------------------------------------------------------------------
+    objeto = new Date();
+    dia = objeto.getDay(); //0: domingo; 1: segunda; etc.
+
+    // Solução usando o if
+    if (dia == 0) alert("Hoje é dom!");
+    else if (dia == 1) alert("Hoje é seg!");
+    else if (dia == 2) alert("Hoje é ter!");
+    else if (dia == 3) alert("Hoje é qua!");
+    else if (dia == 4) alert("Hoje é qui!");
+    else if (dia == 5) alert("Hoje é sex!");
+    else if (dia == 6) alert("Hoje é sab!");
+    else alert("Esse dia não existe!");
+
+    //Solução usando o switch
+    switch (dia) {
+        case 0: 
+            alert("Hoje é dom!");
+            break;
+        case 1: 
+            alert("Hoje é seg!");
+            break;
+        case 2: 
+            alert("Hoje é ter!");
+            break;
+        case 3: 
+            alert("Hoje é qua!");
+            break;
+        case 4: 
+            alert("Hoje é qui!");
+            break;
+        case 5: 
+            alert("Hoje é sex!");
+            break;
+        case 6: 
+            alert("Hoje é sab!");
+            break;
+        default: 
+            alert("Esse dia não existe");
+    }
+
+    // Estrutura do switch
+    // switch (variavel) {
+    //     case valor1:
+    //         // instruções...
+    //         break;
+    //     case valor2:
+    //         // instruções...
+    //         break;
+    //     //... outros cases
+    //     case valorN:
+    //         // instruções...
+    //         break;
+    //     default:
+    //         // instruções...
+    // }
+
+    // Solucao 8 da lista 03
+    //------------------------------------------------------------------------------------
+    opcoesJogo = ["pedra","papel","tesoura"];
+
+    jogador1 = opcoesJogo[parseInt(Math.random()*3)]
+    document.write(`<p>Jogador 1: ${jogador1}</p>`);
+    document.write(`<img src="img/${jogador1}.png">`);
+
+    jogador2 = opcoesJogo[parseInt(Math.random()*3)]
+    document.write(`<p>Jogador 2: ${jogador2}</p>`);
+    document.write(`<img src="img/${jogador2}.png">`);
+
+    if (jogador1 == 'pedra') {
+        if (jogador2 == 'pedra') alert('empate');
+        if (jogador2 == 'papel') alert('Jogador 2 venceu!');
+        if (jogador2 == 'tesoura') alert('Jogador 1 venceu!');
+    }
+    else if (jogador1 == 'papel') {
+        if (jogador2 == 'pedra') alert('Jogador 1 venceu');
+        if (jogador2 == 'papel') alert('empate!');
+        if (jogador2 == 'tesoura') alert('Jogador 2 venceu!');
+    }
+    else if (jogador1 == 'tesoura') {
+        if (jogador2 == 'pedra') alert('Jogador 2 venceu');
+        if (jogador2 == 'papel') alert('Jogador 1 venceu');
+        if (jogador2 == 'tesoura') alert('empate!');
+    }
+
+    // Como inserir um novo elemento num vetor
+    //------------------------------------------------------------------------------------
+    nomes = ["ana1","ana2","ana3","ana4","ana5"];
+    nomeNovo = prompt("Informe um novo nome: "); // Ex: "aninha"
+    
+    // Como inserir o novo nome usando length
+    nomes[nomes.length] = nomeNovo;
+    console.log(nomes);
+
+    // Como inserir o novo nome usando o metodo push da class Array()
+    nomes.push(nomeNovo, "Ryann"); // será inserido no final (push faz isso, inserir no final)
+    console.log(nomes);
+
+    // Como remover elementos de um vetor    
+    //------------------------------------------------------------------------------------
+    nomes = ["ana1","ana2","ana3","ana4","ana5"];
+    // Remover o ultimo elemento usando o metodo pop()
+    nomeRemovido = nomes.pop(); // ira remover o ultimo nome "ana5" e ira armazenar na variavel nomeRemovido, ou seja, teremos nomeRemovido = "ana"
+
+    // Remover um elemento qualquer usando o metodo splice()
+    nomes = ["ana1","ana2","ana3","ana4","ana5"];
+    nomesRemovidos = nomes.splice(2,1); // sera removido o nome "ana3". Esse item será armazenado num novo vetor e esse vetor sera armazenado na variaval nomesRemovidos, ou seja, teremos nomesRemovidos = ["ana3"]
+    console.log(nomesRemovidos);
+    console.log(nomes); // O vetor nomes não terá mais o nome "ana3", ou seja, teremos nomes = ["ana1","ana2","ana4","ana5"];
+
+    // Solução do exercício 09 da lista 03 (essa solução é a base para os exercícios 10 e 11 da lista 03)
+    //------------------------------------------------------------------------------------
+    nomes = [];
+    total = parseInt(prompt("Qts nomes: ",3));
+    //total = parseInt(prompt("Qts nomes: ",3));
+
+    for (i=0; i <total; i++) 
+        nomes[i] = prompt(`Digite o nome ${i+1}:`,`Ana ${i+1}`);
+        //nomes[i] = prompt(`Digite o nome ${i+1}:`);
+
+    // Sorteio dos nomes. Sorteia um nome, remove ele do vetor e mostra ele. Repete até não haver mais elementos no vetor
+    for(i = 0; i<total;  i++){
+        dado = parseInt(Math.random()*nomes.length);
+        nomeSorteado = nomes.splice(dado, 1); 
+        console.log(nomeSorteado[0]);
+    }
+
+
+
+
+
+
+
+        
+      
+
+
+        
+            
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
