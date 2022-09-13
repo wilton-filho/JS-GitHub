@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            border: 1px solid black;
+            width: 400px;
+            margin: auto;
+            padding: 10px;
+        }
+
+        input[type="button"] {
+            display: block;
+            width: 100px;
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="number"] {
+            width: 95%;
+        }
+        .errorMsg {
+            color: red;
+            font-size: 10px;
+            font-weight: bold;
+            display: block;
+        }
+
+        label {
+            margin-top: 5px;
+            display: inline-block;
+        }
+        select {
+            width:95%;
+        }
+    </style>
+    <script>
+        // Validação de <SELECTS>
+        function validateSelects() {
+            selects = document.getElementsByTagName("select");
+            for (i = 0; i < selects.length; i++) 
+                ((selects[i].selectedIndex == 0) && (!selects[i].className.search("obrigatorio"))) ? document.getElementById(`${selects[i].name}ERROR`).innerHTML = `${selects[i].name}: selecione uma opção!` : document.getElementById(`${selects[i].name}ERROR`).innerHTML = ``;
+        }
+        // Validação de <INPUT type="radio">. Utilizado pela função validateRadios()
+        function validateRadio(nomeGrupo) {
+            radio = document.getElementsByName(nomeGrupo);
+            for (let i = 0; i < radio.length; i++) if (radio[i].checked) return true;
+            return false;
+        }
+        // Validação de <INPUTS type="radio">
+        function validateRadios() {
+            inputs = document.getElementsByTagName("input");
+            for (let i = 0; i < inputs.length; i++) {
+                if ((inputs[i].type == "radio") && (!inputs[i].className.search("obrigatorio"))) {
+                    if (!validateRadio(inputs[i].name)) document.getElementById(`${inputs[i].name}ERROR`).innerHTML = `${inputs[i].name}: selecione uma opção!`;
+                    else document.getElementById(`${inputs[i].name}ERROR`).innerHTML = ``;
+                    i = i + document.getElementsByName(inputs[i].name).length - 1;
+                }
+            }
+        }
+        // Validação de <INPUT type="text">, <INPUT type="tel"> e <INPUT type="number">
+        function validateInputs() {
+            inputs = document.querySelectorAll(".obrigatorio");
+            for (i = 0; i < inputs.length; i++) {
+                if (!inputs[i].value)
+                    document.getElementById(`${inputs[i].name}ERROR`).innerHTML = `${inputs[i].name} está em branco. Tente novamente!`;
+            }
+        }
+        // Validação de todos os campos do formulario
+        function validate() {
+            validateInputs();
+            validateSelects();
+            validateRadios();
+        }
+    </script>
+</head>
+
+<body>
+    
+    <!-- Para adicionar um novo campo copie algum existente e altere os valores dos atributos. Se for obrigatório utilize a class="obrigatorio" -->
+    <form>
+        <p class="errorMsg">* Informações de preenchimento obrigatório</p>
+        <!-- NOME -->
+        <label for="txtNome">*Nome:</label>
+        <input type="text" name="NOME" id="txtNome" class="obrigatorio">
+        <span id="NOMEERROR" class="errorMsg"></span>
+
+        <!-- ENDEREÇO -->
+        <label for="txtEndereco">Endereço:</label>
+        <input type="text" name="ENDERECO" id="txtEndereco">
+        <span id="ENDERECOERROR" class="errorMsg"></span>
+
+        <!-- TELEFONE -->
+        <label for="txtFone">*Telefone:</label>
+        <input type="tel" name="TELEFONE" id="txtFone" class="obrigatorio">
+        <span id="TELEFONEERROR" class="errorMsg"></span>
+
+        <!-- IDADE -->
+        <label for="txtIdade">Idade:</label>
+        <input type="number" name="IDADE" id="txtIdade" required min="1" max="140">
+        <span id="IDADEERROR" class="errorMsg"></span>
+
+        <!-- SEXO -->
+        <fieldset>
+            <legend>*Sexo:</legend>
+            <input type="radio" id="masc" name="SEXO" class="obrigatorio"><label for="masc">Masculino</label>
+            <input type="radio" id="fem" name="SEXO" class="obrigatorio"><label for="fem">Feminino</label>
+            <span id="SEXOERROR" class="errorMsg"></span>
+        </fieldset>
+
+        <!-- ESTATURA -->
+        <fieldset>
+            <legend>*Estatura:</legend>
+            <input type="radio" id="alto" name="ESTATURA"><label for="alto">Alto</label>
+            <input type="radio" id="baixo" name="ESTATURA"><label for="baixo">Baixo</label>
+            <span id="ESTATURAERROR" class="errorMsg"></span>
+        </fieldset>
+
+        <!-- ESTADO CIVIL -->
+        <label>*Estado civil:</label>
+        <select name="ESTADO_CIVIL" id="estadoCivil" class="obrigatorio">
+            <option value="-1">Selecione</option>
+            <option value="casado">Casado</option>
+            <option value="viuvo">Viúvo</option>
+            <option value="divorciado">Divorciado</option>
+        </select>
+        <span id="ESTADO_CIVILERROR" class="errorMsg"></span>
+
+        <!-- PROFISSAO -->
+        <label>Profissão:</label>
+        <select name="PROFISSAO" id="profissao" >
+            <option value="-1">Selecione</option>
+            <option value="administrador">Administrador</option>
+            <option value="engenheiro">Engenheiro</option>
+            <option value="programador">Programador</option>
+        </select>
+        <span id="PROFISSAOERROR" class="errorMsg"></span>
+
+        <!-- CURRICULO -->
+        <label for="">Currículo resumido:</label>
+        <textarea cols="30" rows="5"></textarea>
+
+        <br><br>
+        <input type="button" value="Enviar" onclick="validate()">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .errorMsg {
+            color: red;
+            font-size: 10px;
+        }
+        label, span {
+            display: block;
+            margin-bottom:10px;
+        }
+    </style>
+    <script>
+        function validate() {
+            txtNome = document.getElementById("txtNome");
+            if (!txtNome.value) {
+                document.getElementById("nomeError").innerHTML = "Nome inválido. Tente novamente!"        
+                txtNome.focus(); 
+            }
+            else alert("Sucesso!");
+        }
+        function limparMsgError() {
+            document.getElementById("nomeError").innerHTML = '';
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <!-- Nome -->
+        <label for="txtNome">Nome:</label>
+        <input type="text" id="txtNome" onkeypress="limparMsgError()">
+        <span id="nomeError" class="errorMsg"></span>
+
+        <!-- Botão -->
+        <input type="button" id="btnValidar" value="Enviar" onclick="validate()">
+    </form>
+</body>
+
+</html>

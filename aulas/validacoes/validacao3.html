@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        form {
+            border: 1px solid black;
+            width: 250px;
+            margin: auto;
+            padding: 10px;
+        }
+
+        input[type="button"] {
+            display: block;
+            width: 100px;
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        input[type="text"], input[type="tel"], input[type="number"] {
+            width: 90%;
+        }
+
+        .errorMsg {
+            color: red;
+            font-size: 10px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        // Valida todos as caixas de texto do tipo "text", "number" e "tel"
+        function validate() {
+            tipos = ["TEXT","NUMBER","TEL"];
+            inputs = document.getElementsByTagName("input");
+            for (i=0; i<inputs.length; i++) {
+                if (tipos.includes(inputs[i].type.toUpperCase()) && (inputs[i].value == ""))
+                    document.getElementById(`${inputs[i].name}ERROR`).innerHTML = `${inputs[i].name} está em branco. Tente novamente!`;
+            }
+        }
+        // Limpa a msg de erro de uma caixa de texto
+        function limparMsgError(id) {
+            document.getElementById(id).innerHTML = '';
+        }
+    </script>
+</head>
+
+<body>
+    <!-- CONSIDERA todos os campos como obrigatórios -->
+    <form>
+        <!-- Nome -->
+        <p class="errorMsg">Todos os campos são de preenchimento obrigatório</p>
+        <label for="txtNome">Nome:</label>
+        <input type="text" name="NOME" id="txtNome" onkeypress="limparMsgError('NOMEERROR')">
+        <span id="NOMEERROR" class="errorMsg"></span>
+
+        <!-- Endereço -->
+        <label for="txtEndereco">Endereço:</label>
+        <input type="text" name="ENDERECO" id="txtEndereco" onkeypress="limparMsgError('ENDERECOERROR')">
+        <span id="ENDERECOERROR" class="errorMsg"></span>
+
+        <!-- Telefone -->
+        <label for="txtTelefone">Telefone:</label>
+        <input type="tel" name="TELEFONE" id="txtTelefone" onkeypress="limparMsgError('TELEFONEERROR')">
+        <span id="TELEFONEERROR" class="errorMsg"></span>
+
+        <!-- Idade -->
+        <label for="txtIdade">Idade:</label>
+        <input type="number" name="IDADE" id="txtIdade" onkeypress="limparMsgError('IDADEERROR')">
+        <span id="IDADEERROR" class="errorMsg"></span>
+
+        <!-- Botão -->
+        <input type="button" id="btnValidar" value="Enviar" onclick="validate()">
+    </form>
+</body>
+
+</html>

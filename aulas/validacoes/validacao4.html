@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        form {
+            border: 1px solid black;
+            width: 250px;
+            margin: auto;
+            padding: 10px;
+        }
+        input[type="button"] {
+            display: block;
+            width: 100px;
+            margin: auto;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="tel"], input[type="number"] {
+            width: 90%;
+        }
+        .errorMsg {
+            color: red;
+            font-size: 10px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        // Valida todos as caixas de texto do tipo "text", "number" e "tel"
+        function validate() {
+            inputs = document.querySelectorAll(".obrigatorio");
+            for (i=0; i<inputs.length; i++) {
+                if (!inputs[i].value)
+                    document.getElementById(`${inputs[i].name}ERROR`).innerHTML = `${inputs[i].name} está em branco. Tente novamente!`;
+            }
+        }
+        // Limpa a msg de erro de uma caixa de texto
+        function limparMsgError(id) {
+            document.getElementById(id).innerHTML = '';
+        }
+    </script>
+</head>
+
+<body>
+    <!-- CONSIDERA apenas os campos NOME e IDADE como obrigatórios (para isso foi utilizada a classe errorMsg) -->
+    <form>
+        <p class="errorMsg">* Informações de preenchimento obrigatório</p>
+        <!-- Nome -->
+        <label for="txtNome"><span class="errorMsg">*</span>Nome:</label>
+        <input type="text" name="NOME" id="txtNome" class="obrigatorio" onkeypress="limparMsgError('NOMEERROR')">
+        <span id="NOMEERROR" class="errorMsg"></span>
+
+        <!-- Endereço -->
+        <label for="txtEndereco">Endereço:</label>
+        <input type="text" name="ENDERECO" id="txtEndereco">
+
+        <!-- Telefone -->
+        <label for="txtTelefone">Telefone:</label>
+        <input type="tel" name="TELEFONE" id="txtTelefone">
+
+        <!-- Idade -->
+        <label for="txtIdade"><span class="errorMsg">*</span>Idade:</label>
+        <input type="number" name="IDADE" id="txtIdade" class="obrigatorio" onkeypress="limparMsgError('IDADEERROR')">
+        <span id="IDADEERROR" class="errorMsg"></span>
+
+        <!-- Botão -->
+        <input type="button" id="btnValidar" value="Enviar" onclick="validate()">
+    </form>
+</body>
+
+</html>
