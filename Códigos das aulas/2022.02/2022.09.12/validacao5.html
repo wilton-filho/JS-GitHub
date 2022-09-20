@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            border: 1px solid black;
+            width: 250px;
+            margin: auto;
+            padding: 10px;
+        }
+        input[type="button"] {
+            display: block;
+            width: 100px;
+            margin: auto;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="tel"], input[type="number"] {
+            width: 90%;
+        }
+        .errorMsg {
+            color: red;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        span {
+            display: block;
+        }
+    </style>
+    <script>
+        // Valida se dentro de determinado RADIO ha algum checked
+        function validateRadio(nomeGrupo) {
+            radio = document.getElementsByName(nomeGrupo);
+            for (let i=0; i<radio.length; i++) if (radio[i].checked) return true;
+            return false;
+        }
+        // Analisa se em cada grupo do tipo RADIO há pelo menos 1 opção selecionada
+        function validateRadios() {
+            inputs = document.getElementsByTagName("input");
+            for (let i=0; i<inputs.length; i++) {
+                if (inputs[i].type == "radio") {
+                    if (!validateRadio(inputs[i].name)) document.getElementById(`${inputs[i].name}ERROR`).innerHTML = `Selecione uma opção!`;
+                    else document.getElementById(`${inputs[i].name}ERROR`).innerHTML = ``;
+                    i = i + document.getElementsByName(inputs[i].name).length - 1;
+                }
+            }
+        }
+        function validate() {
+            validateRadios();            
+        }
+    </script>
+</head>
+
+<body>
+    
+    <form>
+        <p class="errorMsg">* Informações de preenchimento obrigatório</p>
+
+        <!-- Sexo -->
+        <fieldset>
+            <legend>Sexo:</legend>
+            <input type="radio" id="masc" name="SEXO"><label for="masc">Masculino</label>
+            <input type="radio" id="fem" name="SEXO"><label for="fem">Feminino</label>
+            <span id="SEXOERROR" class="errorMsg"></span>
+        </fieldset>
+
+        <!-- Estado civil -->
+        <fieldset>
+            <legend>Estado civil:</legend>
+            <input type="radio" id="casado" name="ESTADO_CIVIL"><label for="casado">Casado</label>
+            <input type="radio" id="solteiro" name="ESTADO_CIVIL"><label for="solteiro">Solteiro</label>
+            <span id="ESTADO_CIVILERROR" class="errorMsg"></span>
+        </fieldset>
+
+        <!-- Botão -->
+        <input type="button" id="btnValidar" value="Enviar" onclick="validate()">
+    </form>
+</body>
+
+</html>

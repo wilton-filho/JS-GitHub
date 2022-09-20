@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            border: 1px solid black;
+            width: 250px;
+            margin: auto;
+            padding: 10px;
+        }
+        input[type="button"] {
+            display: block;
+            width: 100px;
+            margin: auto;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="tel"], input[type="number"] {
+            width: 90%;
+        }
+        .errorMsg {
+            color: red;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        span {
+            display: block;
+        }
+    </style>
+    <script>
+        // Validação de <selects>
+        function validateSelects() {
+            selects = document.getElementsByTagName("select");
+            for (i=0; i<selects.length; i++) 
+                (selects[i].selectedIndex == 0)?document.getElementById(`${selects[i].name}ERROR`).innerHTML = `Selecione uma opção!`:document.getElementById(`${selects[i].name}ERROR`).innerHTML = ``;
+        }
+        function validate() {
+            validateSelects();            
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <p class="errorMsg">* Informações de preenchimento obrigatório</p>
+
+        <!-- ESTADO CIVIL -->
+        <label>Estado civil:</label>
+        <select name="ESTADO_CIVIL" id="estadoCivil" onchange="validateSelects()">
+            <option value="-1">Selecione</option>
+            <option value="casado">Casado</option>
+            <option value="viuvo">Viúvo</option>
+            <option value="divorciado">Divorciado</option>
+        </select>
+        <span id="ESTADO_CIVILERROR" class="errorMsg"></span>
+
+        <br>
+
+        <!-- PROFISSAO -->
+        <label>Profissão:</label>
+        <select name="PROFISSAO" id="profissao" onchange="validateSelects()">
+            <option value="-1">Selecione</option>
+            <option value="administrador">Administrador</option>
+            <option value="engenheiro">Engenheiro</option>
+            <option value="programador">Programador</option>
+        </select>
+        <span id="PROFISSAOERROR" class="errorMsg"></span>
+
+        <!-- Botão -->
+        <input type="button" id="btnValidar" value="Enviar" onclick="validate()">
+    </form>
+</body>
+
+</html>
