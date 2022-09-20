@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisar Texto</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        function analisarTxt() {
+            // Qual informacao o usuario deseja analisar?
+            if (document.getElementById("tipoInfo").value == "opcao1")
+                // Utiliza informacao vindo da home
+                txt = document.getElementById("txtHome").innerHTML;
+            else
+                // Utiliza informacao dessa pagina
+                txt = document.getElementById("txtInfo").value;
+
+            // Obtem as palavras do texto
+            vetPalavras = txt.split(" ");
+
+            // 3) Total de palavras no texto
+            document.getElementById("txtTotalPal").innerHTML = vetPalavras.length;
+            
+            // 4) Palavras iniciadas com a letra M:
+            for (i=0; i<vetPalavras.length; i++) {
+                palavra = vetPalavras[i]; // Instituto
+                if (palavra.charAt(0).toUpperCase() == 'M')
+                    document.getElementById("txtPalLetraM").value += palavra + " ";
+            }
+
+            // 5) Primeira palavra do texto
+            document.getElementById("primPalavra").value = vetPalavras[0];
+            
+            // 6) Segunda palavra do texto
+            document.getElementById("segPalavra").value = vetPalavras[1];
+            
+            // 7) Ultima palavra do texto
+            document.getElementById("ultPalavra").value = vetPalavras[vetPalavras.length-1];
+        }
+
+        // Obtem a informacao vindo da home apos o carregamento da pagina
+        function getTextHome() {
+            document.getElementById("txtHome").innerHTML = localStorage.getItem("text");
+        }
+    </script>
+</head>
+
+<!-- onload(): apos o carregamento da pagina le a informacao do "LOCAL STORAGE" armazenado pela HOME -->
+<body onload="getTextHome()">
+    <p class="destaque">1) Texto informado pelo usuário na página anterior</p>
+    <p id="txtHome"></p>
+
+    <p class="destaque">2) Você gostaria de analisar a informação disponibilizada pelo usuário na página anterior?</p>
+    <select id="tipoInfo">
+        <option value="opcao1">Sim</option>
+        <option value="opcao2">Não</option>
+    </select>
+
+    <p>OBS: Se você responder "não" na pergunta anterior (2), por favor informe um novo texto na caixa abaixo:</p>
+    <form>
+        <input type="text" id="txtInfo" class="txtBox" value="Instituto Federal do Triângulo Mineiro Minas Gerais meu preferido">
+        <br>
+        <input type="button" value="Analisar" onclick="analisarTxt()">
+    </form>
+
+    <hr>
+
+    <form>
+        <p class="destaque">3) Quantidade de palavras contidas no texto: <span id="txtTotalPal"></span></p>
+        
+        <label class="destaque">4) Palavras iniciadas com a letra M:</label>
+        <input type="text" id="txtPalLetraM" disabled>
+        <br><br>
+        
+        <label class="destaque">5) Primeira palavra do texto:</label>
+        <input type="text" id="primPalavra" disabled>
+        <br><br>
+        
+        <label class="destaque">6) Segunda palavra do texto:</label>
+        <input type="text" id="segPalavra" disabled>
+        <br><br>
+        
+        <label class="destaque">7) Última palavra do texto:</label>
+        <input type="text" id="ultPalavra" disabled>
+        
+        <input type="button" value="Abrir a página do papai noel" onclick="window.open('felizNatal.html','_self')">
+    </form>
+</body>
+
+</html>

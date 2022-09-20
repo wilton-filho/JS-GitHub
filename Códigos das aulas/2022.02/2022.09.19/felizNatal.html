@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Natal!</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        function exibirFalasPN() {
+            nroFalas = document.getElementById("txtFalas").value;
+            document.getElementById("falasPN").innerHTML = "";
+            for (i=0; i<nroFalas; i++)
+                document.getElementById("falasPN").innerHTML += "Ho Ho Ho Feliz Natal!<br>";
+        }
+    </script>
+</head>A
+
+<body>
+    <form>
+        <label for="txtFalas">Quantas falas do Papai Noel?:</label>
+        <input type="text" id="txtFalas">
+        <br>
+        <input type="button" class="btnFalasPN" value="Mostrar falas do Papai Noel" onclick="exibirFalasPN()">
+        <p id="falasPN">Wilton Filho</p>
+    </form>
+</body>
+
+</html>

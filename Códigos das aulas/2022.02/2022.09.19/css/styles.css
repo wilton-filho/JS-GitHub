@@ -1,0 +1,17 @@
+.destaque {
+    font-weight: bold;
+}
+.txtBox {
+    width: 400px;
+}
+.btnFalasPN {
+    padding: 15px;
+    background-color: green;
+    color: white;
+    border:none;
+    margin-top: 15px;
+}
+.btnFalasPN:hover {
+    background-color:red;
+    cursor:pointer;
+}
