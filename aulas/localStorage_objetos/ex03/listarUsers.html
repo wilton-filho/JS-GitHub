@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showUser() {
+            if (typeof(Storage) != "undefined") {
+                usuarios = localStorage.getItem("usuarios");
+                if (!usuarios) document.getElementById("userCad").innerHTML = "Não há nenhum usuário cadastrado!";
+                else {
+                    usuarios = JSON.parse(usuarios);
+                    for (i=0; i<usuarios.length; i++)
+                        document.getElementById("userCad").innerHTML += `Usuário = ${usuarios[i].nome} e Senha = ${usuarios[i].senha} <br>`;
+                }
+            }
+            else alert("Navegador não oferece suporte a localStorage");
+        }
+    </script>
+</head>
+<body onload="showUser()">
+    <h2>Usuário cadastrado:</h2>
+    <p id="userCad"></p>
+</body>
+</html>
