@@ -43,14 +43,22 @@
 
         // Como armazenar um objeto no localStorage?
         // Primeiro é necessário converter OBJETO -> STRING. Como fazer isso? Usar JSON.stringify(<objeto>)
-        localStorage.setItem("usuario1",JSON.stringify(user1));
+        if (typeof(Storage) != "undefined") {
+            localStorage.setItem("usuario1",JSON.stringify(user1));
 
-        // Como fazer para ler um OBJETO de localStorage?
-        // Primeiro é necessário converter o OBJETO que está como STRING no localStorage em OBJETO de fato
-        // Como converter STRING -> OBJETO? Usar JSON.parse(<string no formato de objeto>)
-        usuario1 = JSON.parse(localStorage.getItem("usuario1"));
-        document.write(`<h2> Exemplo 03: exibindo os valores dos atributos do objeto USER1 que foram armazenados no localStorage</h2>`);
-        document.write(`<p>Nome = ${usuario1.nome} e Senha = ${usuario1.senha}</p>`);
+            // Como fazer para ler um OBJETO de localStorage?
+            // Primeiro é necessário converter o OBJETO que está como STRING no localStorage em OBJETO de fato
+            // Como converter STRING -> OBJETO? Usar JSON.parse(<string no formato de objeto>)
+            usuario1 = localStorage.getItem("usuario1");
+            if (!usuario1)
+                alert("Não existe nenhum valor armazenado para a CHAVE 'usuario1'");
+            else {
+                usuario1 = JSON.parse(usuario1);
+                document.write(`<h2> Exemplo 03: exibindo os valores dos atributos do objeto USER1 que foram armazenados no localStorage</h2>`);
+                document.write(`<p>Nome = ${usuario1.nome} e Senha = ${usuario1.senha}</p>`);
+            }
+        }
+        else alert("Navegador não oferece suporte a localStorage");
 
     </script>
 </head>
