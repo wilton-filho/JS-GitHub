@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function boasVindas() {
+            nome = prompt("Qual é o seu nome?");
+            if (!nome) nome = "Visitante";
+            document.getElementById("txtUser").value = nome;
+        }
+        function validar() {
+            user = document.getElementById("txtUser");
+            pwd = document.getElementById("txtPwd");
+
+            if (!user.value) {
+                alert("Usuário em branco. Favor informá-lo!");
+                user.focus();
+            }
+            else if (!pwd.value) {
+                alert("Senha em branco. Favor informá-la!")
+                pwd.focus();
+            }
+            else if (typeof(Storage) != "undefined") {
+                usuario = {nome:user.value, senha:pwd.value};
+                localStorage.setItem("usuario",JSON.stringify(usuario));
+                alert("Usuario cadastrado com sucesso!");
+            }
+            else alert("Navegador não oferece suporte a localStorage");
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+        <label for="">Usuário</label><br>
+        <input type="text" id="txtUser">
+        <br><br>
+        <label for="">Senha:</label><br>
+        <input type="password" id="txtPwd">
+        <br><br>
+
+        <input type="button" value="Cadastrar" onclick="validar()">       
+        <input type="reset" value="Limpar">
+    </form>
+
+    <br>
+    <a href="listarUser.html">Mostrar usuário cadastrado</a>
+</body>
+</html>
