@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //----------------------------------------------------------------------------
+        // EXEMPLO 01: como criar objetos em JavaScript?
+        //----------------------------------------------------------------------------
+        // user1: é um objeto composto por 2 atributos (nome e senha)
+        user1 = {nome:"wilton", senha:"123"};
+        // user2: é um objeto composto por 2 atributos (nome e senha)
+        user2 = {nome:"rodolfo", senha:"456"};
+
+        document.write(`<h2> Exemplo 01: exibindo os valores dos atributos do primeiro usuario: </h2>`);
+        // Como exibir os valores dos atributos do objeto user1? A partir do operador .
+        document.write(`<p>Nome = ${user1.nome} e Senha = ${user1.senha}</p>`);
+
+        //----------------------------------------------------------------------------
+        // EXEMPLO 02: como criar um vetor de objetos?
+        //----------------------------------------------------------------------------
+        usuarios = [
+            {nome:"wilton", senha:"123"}, 
+            {nome:"rodolfo", senha:"456"}
+        ];
+
+        // Como exibir os valores dos atributos do primeiro objeto do vetor usuarios?
+        document.write(`<h2> Exemplo 02 (parte 1): exibindo os valores dos atributos do primeiro objeto armazenado no vetor </h2>`);
+        document.write(`<p>Nome = ${usuarios[0].nome} e Senha = ${usuarios[0].senha}</p>`);
+
+        // E se fosse para imprimir os nomes de todos os objetos armazenados no vetor usuarios, como fariamos?
+        document.write(`<h2> Exemplo 02 (parte 2): exibindo os valores dos atributos de todos os objetos armazenados no vetor </h2>`);        
+        for (i=0; i<usuarios.length; i++)
+        document.write(`<p>Usuário ${i+1}: [Nome = ${usuarios[i].nome} e Senha = ${usuarios[0].senha}]</p>`);
+
+        //----------------------------------------------------------------------------
+        // EXEMPLO 03: como armazenar um objeto no localStorage?
+        //----------------------------------------------------------------------------
+        user1 = {nome:"wilton", senha:"123"};
+
+        // Como armazenar um objeto no localStorage?
+        // Primeiro é necessário converter OBJETO -> STRING. Como fazer isso? Usar JSON.stringify(<objeto>)
+        if (typeof(Storage) != "undefined") { // Verificando se o navegador oferece suporte a localStorage
+            localStorage.setItem("usuario1",JSON.stringify(user1));
+
+            // Como fazer para ler um OBJETO de localStorage?
+            // Primeiro é necessário converter o OBJETO que está como STRING no localStorage em OBJETO de fato
+            // Como converter STRING -> OBJETO? Usar JSON.parse(<string no formato de objeto>)
+            usuario1 = localStorage.getItem("usuario1");
+            if (!usuario1) // Existe a chave usuario1 no localStorage do navegador?
+                alert("Não existe nenhum valor armazenado para a CHAVE 'usuario1'");
+            else {
+                usuario1 = JSON.parse(usuario1);
+                document.write(`<h2> Exemplo 03: exibindo os valores dos atributos do objeto USER1 que foram armazenados no localStorage</h2>`);
+                document.write(`<p>Nome = ${usuario1.nome} e Senha = ${usuario1.senha}</p>`);
+            }
+        }
+        else alert("Navegador não oferece suporte a localStorage!!!");
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

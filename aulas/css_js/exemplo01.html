@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .class1 {
+            color: green;
+            background-color: pink;
+            text-transform: uppercase;
+            text-decoration: underline;
+        }
+        .class2 {
+            font-size: 35px;
+        }
+        .class3 {
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function mudarTxt(opcao) {
+            switch (opcao) {
+                case 1:
+                    document.getElementById("txt1").style.color = "red";
+                    break;
+                case 2:
+                    document.getElementById("txt2").style.backgroundColor = "yellow";
+                    document.getElementById("txt2").style.cursor = "pointer";
+                    break;
+                case 3:
+                    document.getElementById("txt3").className = "class1";
+                    break;
+                case 4:
+                    document.getElementById("txt4").className = "class1 class2";
+                    break;
+                case 5:
+                    document.getElementById("txt5").style.color = "red";
+                break;
+                case 6:
+                    document.getElementById("txt6").style.setProperty('font-size','30px');
+                break;
+                case 7:
+                    document.getElementById("txt7").style.removeProperty('color');
+                break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p id="txt1" onmouseenter="mudarTxt(1)" onmouseleave="mudarTxt(5)">Exemplo de texto 01</p>
+    <p id="txt2" onmouseover="mudarTxt(2)">Exemplo de texto 02</p>
+    <p id="txt3" onmouseover="mudarTxt(3)">Exemplo de texto 03</p>
+    <p id="txt4" onmouseover="mudarTxt(4)">Exemplo de texto 04</p>
+    <p id="txt5" onmouseover="mudarTxt(5)">Exemplo de texto 05</p>
+    <p id="txt6" class="class3" onmouseover="mudarTxt(6)">Exemplo de texto 06</p>
+    <p id="txt7" style="color:red" onmouseover="mudarTxt(7)">Exemplo de texto 07</p>
+</body>
+
+</html>
