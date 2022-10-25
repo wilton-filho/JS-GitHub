@@ -1,3 +1,15 @@
+<!---------------------------------------------------------------------------------------------------------------------------------
+    Objetivo: implementar a interface de login de um jogo qualquer cujos dados estarão armazenados num arquivo JSON (local e remoto)
+    Dependências (disponibilizar para os alunos):
+        - /img
+        - /css/jAlertWifi.css
+        - /css/login.css
+        - /js/jAlertWifi.js
+    O que deverá ser criado com os alunos:
+        - index.html
+        - /js/login.js
+        - /json/user.json
+----------------------------------------------------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +28,9 @@
                 <img src="img/toupeira.gif" alt="">
                 <h1>Nome do jogo</h1>
                 <form>
-                    <input type="text" id="user" placeholder="Usuário" value="wilton">
-                    <input type="password" id="pwd" placeholder="Senha" value="teste">
-                    <input type="button" id="btnLogin" value="Entrar" onclick="validateForm('user', 'pwd')">
+                    <input type="text" id="user" placeholder="Usuário" value="Wilton">
+                    <input type="password" id="pwd" placeholder="Senha" value="abc">
+                    <input type="button" id="btnLogin" value="Entrar" onclick="validate()">
                 </form>
                 <p>Não é cadastrado? <a href="cadastro.html">Cadastre-se aqui</a></p>
             </div>

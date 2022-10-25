@@ -1,27 +1,38 @@
-function validateForm(idUser, idPwd) {
-    user = document.getElementById(idUser);
-    pwd = document.getElementById(idPwd);
+//------------------------------------------------------------------------------------------
+// Verifica se todos os dados do formulario foram preenchidos e chama uma funcao para ler e
+// processar um arquivo JSON
+function validate() {
+    user = document.getElementById("user");
+    pwd = document.getElementById("pwd");
 
     if (!user.value) {
-        alertWifi(`Usuário em branco. Informe um usuário`, false, 0, "", 30);
+        alertWifi(`Usuário em branco. Informe um usuário`, false, 0, "../img/morreu.gif", 30);
         user.focus();
     }
     else if (!pwd.value) {
-        alertWifi(`Senha em branco. Informe uma senha`, false, 0, "", 30);
+        alertWifi(`Senha em branco. Informe uma senha`, false, 0, "../img/morreu.gif", 30);
         pwd.focus();
     }
-    else {
-        //alertWifi(`Sucesso no preenchimento!`, false, 0, "", 30);
-        console.log(readJSON(user.value, pwd.value));
-    }
+    else console.log(readJSON(user.value, pwd.value));
 }
+
+//------------------------------------------------------------------------------------------
+// Lê um arquivo JSON e chama um funcao (checkUser) para processar o arquivo JSON lido
 function readJSON(user, pwd) {
-    file = '../json/users.json';
+    // Acessando JSON local
+    file = "../json/users.json";
+
+    // Acessando JSON de um servidor
+    //file = 'https://wilton-filho.github.io/JS-GitHub/aulas/jogo/login/json/users2.json';
+    
     fetch(file)
         .then(response => response.json())
         .then(content => checkUser(content, user, pwd))
-        .catch(err => console.log("erro na leitura do JSON"));
+        .catch(err => alertWifi(`Problemas na leitura do JSON!`, false, 0, "../img/morreu.gif", 30));
 }
+
+//------------------------------------------------------------------------------------------
+// Analisa se o usuario e senha informados no formulário (interface) estão presentes na estrutura JSON lida na função readJSON()
 function checkUser(content, user, pwd) {
     var achou = false;
     for (i=0; i<content.usuarios.length; i++) {
@@ -30,8 +41,8 @@ function checkUser(content, user, pwd) {
             break;
         }
     }   
-    if (achou) alertWifi(`Usuario existente!`, false, 0, "", 30);
-    else alertWifi(`Usuário inexistente!`, false, 0, "", 30);
+    if (achou) alertWifi(`Login válido. Ihuuuulll!`, false, 0, "../img/toupeira.gif", 30);
+    else alertWifi(`Esse usuário não existe. Que pena!`, false, 0, "../img/morreu.gif", 30);
 }
 
 
