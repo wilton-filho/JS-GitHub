@@ -6,11 +6,11 @@ function validate() {
     pwd = document.getElementById("pwd");
 
     if (!user.value) {
-        alertWifi(`Usuário em branco. Informe um usuário`, false, 0, "../img/morreu.gif", 30);
+        alertWifi(`Usuário em branco. Informe um usuário`, false, 0, "img/morreu.gif", 30);
         user.focus();
     }
     else if (!pwd.value) {
-        alertWifi(`Senha em branco. Informe uma senha`, false, 0, "../img/morreu.gif", 30);
+        alertWifi(`Senha em branco. Informe uma senha`, false, 0, "img/morreu.gif", 30);
         pwd.focus();
     }
     else console.log(readJSON(user.value, pwd.value));
@@ -20,15 +20,15 @@ function validate() {
 // Lê um arquivo JSON e chama um funcao (checkUser) para processar o arquivo JSON lido
 function readJSON(user, pwd) {
     // Acessando JSON local
-    //file = "../json/users.json";
+    file = "json/users.json";
 
     // Acessando JSON de um servidor
-    file = 'https://wilton-filho.github.io/JS-GitHub/aulas/jogo/login/json/users2.json';
+    //file = 'https://wilton-filho.github.io/JS-GitHub/aulas/jogo/login/json/users2.json';
     
     fetch(file)
         .then(response => response.json())
         .then(content => checkUser(content, user, pwd))
-        .catch(err => alertWifi(`Problemas na leitura do JSON!`, false, 0, "../img/morreu.gif", 30));
+        .catch(err => alertWifi(`Problemas na leitura do JSON!`, false, 0, "img/morreu.gif", 30));
 }
 
 //------------------------------------------------------------------------------------------
@@ -41,8 +41,8 @@ function checkUser(content, user, pwd) {
             break;
         }
     }   
-    if (achou) alertWifi(`Login válido. Ihuuuulll!`, false, 0, "../img/toupeira.gif", 30);
-    else alertWifi(`Esse usuário não existe. Que pena!`, false, 0, "../img/morreu.gif", 30);
+    if (achou) alertWifi(`Login válido. Ihuuuulll!`, false, 0, "img/toupeira.gif", 30);
+    else alertWifi(`Esse usuário não existe. Que pena!`, false, 0, "img/morreu.gif", 30);
 }
 
 
