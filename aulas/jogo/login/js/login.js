@@ -20,10 +20,10 @@ function validate() {
 // Lê um arquivo JSON e chama um funcao (checkUser) para processar o arquivo JSON lido
 function readJSON(user, pwd) {
     // Acessando JSON local
-    file = "../json/users.json";
+    //file = "../json/users.json";
 
     // Acessando JSON de um servidor
-    //file = 'https://wilton-filho.github.io/JS-GitHub/aulas/jogo/login/json/users2.json';
+    file = 'https://wilton-filho.github.io/JS-GitHub/aulas/jogo/login/json/users2.json';
     
     fetch(file)
         .then(response => response.json())
