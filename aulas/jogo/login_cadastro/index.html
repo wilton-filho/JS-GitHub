@@ -1,0 +1,41 @@
+<!---------------------------------------------------------------------------------------------------------------------------------
+    Objetivo: implementar a interface de login de um jogo qualquer cujos dados estarão armazenados num arquivo JSON (local e remoto)
+    Dependências (disponibilizar para os alunos):
+        - /img
+        - /css/jAlertWifi.css
+        - /css/login.css
+        - /js/jAlertWifi.js
+    O que deverá ser criado com os alunos:
+        - index.html
+        - /js/login.js
+        - /json/user.json
+	Onde está aplicação está hospedada? https://wilton-filho.github.io/JS-GitHub/aulas/jogo/login/index.html
+----------------------------------------------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Mole Game </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/jAlertWifi.js"></script>
+    <script src="js/login.js"></script>
+</head>
+<body>
+    <main>
+        <section class="login">
+            <div>
+                <img src="img/toupeira.gif" alt="">
+                <h1>Nome do jogo</h1>
+                <form>
+                    <input type="text" id="user" placeholder="Usuário" value="User1">
+                    <input type="password" id="pwd" placeholder="Senha" value="123">
+                    <input type="button" id="btnLogin" value="Entrar" onclick="validateLogin()">
+                </form>
+                <p>Não é cadastrado? <a href="cadastro.html">Cadastre-se aqui</a></p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
