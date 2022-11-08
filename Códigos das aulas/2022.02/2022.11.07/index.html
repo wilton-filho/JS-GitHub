@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function conferir() {
+            var valor = document.getElementById("txtValor").value;
+            // Padrao para telefone: 98748-9874 ou 8748-9874
+            var padrao = /^\d{4,5}-\d{4}$/;
+
+            // Padrão: deve começar com no mínimo 2 dígitos
+            //var padrao = /^\d\d/;
+
+            // Padrão: deve terminar com 2 dígitos
+            //var padrao = /\d{2}$/;
+
+            // Padrão: deve ter exatamente 2 digitos
+            //var padrao = /^\d{2}$/;
+
+            // Padrão para CEP
+            //var padrao = /^\d{2}\.\d{3}-\d{3}$/;
+
+            // Para para telefone: (34)98749-9874 ou (34)8749-9874 ou (034)98749-9874 ou (034)8749-9874
+            //var padrao = /^\(\d{2,3}\)\d{4,5}-\d{4}$/; 
+
+            // Padrao para validar numero de matricula. Ex: TSPI-1234, onde TSPI poderia ser LCO ou MKT, seguido de um traco + 4 a 5 numeros
+            //var padrao = /^(TSPI|LCO|MKT)-\d{4,5}$/;
+            //var padrao = /^(TSPI|LCO|MKT)-\d{4,5}$/i;
+            //var padrao = /^TSPI-\d{4,5}$/;
+
+            // Padrao: IFTM Uberlândia Centro ou 
+            // IFTM      Uberlândia   Centro
+            //var padrao = /^IFTM\s{1,5}Uberlândia\s{1,5}Centro$/;
+
+            // Padrao para aceitar de 3 a 10 caracteres alfanumericos (letras e/ou numeros)
+            //var padrao = /^\w{3,10}$/;
+
+            // Padrao para verificar todas as palavras compostas por um ou mais das seguintes letras: AEIOUBCDF
+            //var padrao = /^[aeioubcdf]{2,15}$/;
+            //var padrao = /^[aeioubcdf]{2,}$/;
+
+            // Padrao do slide 2
+            // Ex: IFTM-1234-TSPI:9Z 
+            var padrao = /^(I|i)(F|f)(T|t)(M|m)-\d{4,6}-(TSPI|LCO|MKT):\d[A-Z]$/;
+
+            if (padrao.test(valor))
+                alert("Padrão válido");
+            else
+                alert("Padrão inválido");
+        }
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <label for="">Informação:</label>
+        <input type="text" id="txtValor">
+        <input type="button" value="Verificar" onclick="conferir()">
+    </form>
+</body>
+
+</html>
