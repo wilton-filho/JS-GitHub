@@ -1,0 +1,89 @@
+.container {
+    width: 448px;
+    height: 270px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+}
+
+.container2 {
+    width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.container2 div {
+    float: left;
+    margin-left:30px;
+}
+
+h1 {
+    text-shadow: 0.5px 0.5px yellow;
+    text-align: center;
+}
+
+h5 {
+    margin-left: 0;
+    padding-left: 0;
+    font-weight: normal; 
+    margin-bottom: 10px;
+}
+
+.nome {
+    width: 430px;
+}
+
+.label_passatempo {
+    margin-left: 90px;
+}
+
+#idade {
+    width: 118px;
+}
+
+#passatempo {
+    margin-left: 10px;
+    width: 300px;
+}
+
+label {
+    color: rgb(4, 4, 124);
+    font-weight: bolder;
+    margin-left: 5px;
+}
+input {
+    margin-left: 5px
+}
+
+#div_botoes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.asterisco {
+    color: red;
+}
+
+.botao {
+    all: unset;
+    width: 150px;
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left:10px;
+}
+
+#limpar {
+    margin-left: 10px;
+}
+
+#ver_opcoes {
+    margin-right: 10px;
+}

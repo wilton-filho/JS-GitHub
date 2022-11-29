@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/funcoes.js"></script>
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Qual é o seu perfil?</h1>
+        <h5 class="asterisco">OBS: Todas as informações são de preenchimento obrigatório</h5>
+
+        <form>
+            <label for="nome">Nome<span class="asterisco">*</span></label>
+            <input type="text" class="nome" id="txtNome" required value="Wilton">
+
+            <label for="idade">Idade<span class="asterisco">*</span></label>
+            <label for="passatempo" class="label_passatempo">Qual o seu passatempo predileto?<span class="asterisco">*</span></label>
+
+            <input type="number" min="1" max="130" id="txtIdade" required value="10">
+
+            <select name="" required id="selPassatempo">
+                <option value="-1">(a) Selecione</option>
+                <option value="0">(b) Passear no shopping (fazer compras, etc)</option>
+                <option value="1">(c) Curtir a natureza (cachoeira, etc)</option>
+            </select>
+            <div id="div_botoes">
+                <input type="button" value="Limpar" class="botao" id="limpar">
+                <input type="button" value="Ver opções de carros" class="botao" id="ver_opcoes" onclick="validar()">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
