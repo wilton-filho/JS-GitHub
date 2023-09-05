@@ -1,0 +1,10 @@
+img {
+    border:5px solid black;
+    box-shadow: 2px 2px 5px gray;
+    transition: all 0.5s;
+    border-radius: 15px;
+    transform: translateX(-200px);
+}
+img:hover {
+    transform: translateX(0px);
+}
