@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background-color: white;
+}
+.containerTop {
+    top: 0px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    height: 180px;
+    position: fixed;
+    width: 100%;
+}
+
+.container>div {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0px;
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+}
+
+.container>div p {
+    margin-right: 0px;
+    color: darkorange;
+    padding-top: 10px;
+}
+
+.containerTop select {
+    width: 100%;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: rgb(68, 68, 68); 
+    color:white;
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
+    border:none;
+    cursor: pointer;
+}
+
+.containerTop input[type="button"] {
+    background-color: yellow;
+    border: 3px solid white;
+    outline: none;
+    cursor: pointer;
+    width:50px;
+    height: 50px;
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 45px;
+}
+.btnPlay {
+    background-image: url('../img/btnPlay.png');
+}
+.btnPause {
+    background-image: url('../img/btnPause.png');
+}
+.btnStop {
+    background-image: url('../img/btnStop.png');
+}
+.btnSair {
+    background-image: url('../img/btnSair.png');
+}
+.container input[type="button"]:nth-of-type(4) {
+    background-color: rgb(255, 195, 195);
+    color:white;
+}
+
+.containerTop input[type="button"]:hover {
+    box-shadow: 5px 5px 5px gray;
+}
+
+.containerTop input[type="button"]:active {
+    transform: scale(0.9);
+}
+
+.painelJogo {
+    display: flex;
+    height: 115vh;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../img/logoFundo.png');
+}
+
+.painelJogo p {
+    /* font-size: 400px; */
+    font-size: 40vw;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.painelJogo p:active {
+    background-color: transparent;
+    /* background-color: rgba(200,100,100,0); */
+    /* background-color: yellow !important; */
+    /* user-select:none;
+    background-color: transparent !important; */
+    /* user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;     */
+}
+
+.containerBottom {
+    bottom: 0px;
+    flex-direction: row !important;
+    text-align: center;
+    /* font-size: 14px; */
+    font-size: 12px;
+    height: 70px;
+}
+
+.container span {
+    color: white;
+}
+
+#nroSorteado {
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 10px 10px 10px darkorange;
+}
+
+span {
+    padding-top: 10px;
+    display:inline-block;
+}
+.tempo {
+    margin-top:0px;
+    /* font-size: 20px !important; */
+    font-size: 6vw !important;
+}
+@media screen and (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        font-size: 20px;
+        height: 100px;
+    }
+    .container>div {
+        margin-left: 10px;
+        padding: 15px;
+    }
+    .containerTop select {
+        width: 90%;
+        background-color: rgb(254, 219, 171);
+        color: black;
+        font-size: 18px;
+    }
+    .containerTop input[type="button"] {
+        width:70px;
+        height: 70px;
+        border-radius: 35px;
+    }
+    .tempo {
+        margin-top:10px;
+        font-size: 30px !important;
+    }
+    .painelJogo p {
+        font-size: 300px;
+    }
+    .painelJogo {
+        display: flex;
+        height: 100vh;
+    }
+}

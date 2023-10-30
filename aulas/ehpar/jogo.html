@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/jogo.css">
+    <title>JOGO: É PAR?</title>
+</head>
+
+<body>
+    <!-- Painel: nivel de dificuldade, tempo do jogo e botões -->
+    <div class="container containerTop">
+        <!-- Nivel de dificuldade -->        
+        <div>
+            <!-- <p>Nível: </p> -->
+            <select id="nivel">
+                <option value="selecione">Selecione o nível</option>
+                <option value="facil">Fácil</option>
+                <option value="medio">Médio</option>
+                <option value="dificil">Difícil</option>
+            </select>
+        </div>
+
+        <!-- Tempo do jogo -->
+        <div class="tempo">
+            <div>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="seg">00</span>
+            </div>
+        </div>
+
+        <!-- Botoes: iniciar, pausar e parar -->
+        <div>
+            <form>
+                <input type="button" id="btnIniciar" class="btnPlay">
+                <input type="button" id="btnPausar" class="btnPause">
+                <input type="button" id="btnParar" class="btnStop">
+                <input type="button" id="btnSair" class="btnSair">
+            </form>
+        </div>
+    </div>
+
+    <!-- Painel: nro aleatório -->
+    <div class="painelJogo">
+        <p id="nroSorteado">_</p>
+    </div>
+
+    <!-- Painel: nro de acertos, erros e qtidade de nros pares -->
+    <div class="container containerBottom">
+        <!-- Nro de acertos -->
+        <div>
+            <p>ACERTOS <br><span id="acertos">0</span>&nbsp;&nbsp;(<span id="percentualAcertos">0%</span>)</p>
+        </div>
+        <!-- Nro de erros -->
+        <div>
+            <p>ERROS<br><span id="erros">0</span></p>
+        </div>
+        <!-- Qtidade de números pares -->
+        <div>
+            <p>TOTAL<br><span id="qtidadePares">0</span></p>
+        </div>
+    </div>
+
+    <audio id="somJogo" controls>
+        <source id="musica" type="audio/mpeg">
+    </audio>
+
+    <script src="js/jAlertWifi.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/jogo.js"></script>
+</body>
+
+</html>

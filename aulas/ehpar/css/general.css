@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    font-family: 'Press Start 2P', cursive;
+    box-sizing: border-box;
+    margin:0;
+}
+
+body {
+    background-color: black;
+}
+
+.boxCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.boxCenter div {
+    border: 10px solid gray;
+    outline: 5px solid orangered;
+    border-radius: 50px;
+    text-align: center;
+    padding: 40px 20px;
+    background-color: white;
+    box-shadow: 0px 0px 15px 5px rgb(206, 206, 206);
+}
+
+.boxForm {
+    width: 90%;
+    animation-name: showForm;
+    animation-duration: 0.5s;
+}
+
+@keyframes showForm {
+    from {
+        transform: rotate(0deg) scale(0);
+    }
+
+    to {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+.boxForm img {
+    width: 30%;
+    margin: 10px 0px 30px 0px;
+    animation-name: moveImgForm2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    transform: translateX(0px);
+}
+
+@keyframes moveImgForm1 {
+    0% {
+        transform: translateX(-100px);
+    }
+    50% {
+        transform: translateX(100px) rotate(360deg);
+    }
+    100% {
+        transform: translateX(-100px);
+    }
+}
+
+@keyframes moveImgForm2 {
+    0% {
+        transform: rotateY(0deg)
+    }
+    50% {
+        transform: rotateY(180deg)
+    }
+    100% {
+        transform: rotateY(0deg)
+    }
+}
+
+.boxForm form {
+    margin: 20px 0px;
+}
+
+.boxForm input[type="text"],
+.boxForm input[type="password"] {
+    width: 90%;
+    margin: 10px 0px;
+    padding: 10px;
+    padding-left: 5px;
+    border: none;
+    border-bottom: 1px solid rgb(210, 210, 210);
+    margin-top: 20px;
+    outline: none;
+    background-image: url('../img/emoji.gif');
+    background-repeat: no-repeat;
+    background-position: -55px -3px;
+    background-size: 35px;
+    transition: all 0.5s;
+    font-size: 12px;
+    text-align: center;
+    color: rgb(155, 41, 0);
+}
+
+.boxForm input[type="text"]:focus,
+.boxForm input[type="password"]:focus {
+    background-position: left -3px;
+}
+
+.boxForm h1 {
+    font-size:5vw;
+    text-shadow: 1px 1px 1px orangered;
+}
+
+.boxForm input[type="button"],
+.sucess a:link,
+.sucess a:visited {
+    width: 90%;
+    margin: 20px 0px 10px 0px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: orangered;
+    color: white;
+    border: none;
+    text-shadow: 2px 2px 1px black;
+    outline: none;
+    font-size:12px;
+}
+
+.boxForm input[type="button"]:hover {
+    background-color: black;
+    color: white;
+}
+
+.boxForm p {
+    font-size: 50%;
+}
+
+.boxGetNames {
+    width: 800px;
+}
+.boxGetNames input[type="text"] {
+    width:300px;
+}
+.boxForm a:link, .boxForm a:visited {
+    color: #27556C;
+    font-weight: bold;
+    font-size: 3vw;
+}
+
+@media screen and (min-width: 768px) {
+    .boxForm {
+        width: 450px;
+        animation-name: showForm;
+        animation-duration: 0.5s;
+        background-color: green;
+    }
+    .boxForm h1 {
+        font-size: 24px;
+    }
+    .boxForm input[type="text"],
+    .boxForm input[type="password"] {
+        width: 90%;
+        text-align: left;
+        padding-left: 45px;
+        font-size: 14px;
+    }
+    .boxCenter div {
+        box-shadow: 0px 0px 45px 5px rgb(206, 206, 206);
+    }
+    .boxForm img {
+        width: 100px;
+    }
+    .boxForm input[type="button"],
+    .sucess a:link,
+    .sucess a:visited {
+        width: 80%;
+        padding: 20px;
+        font-size:14px;
+    }
+    .boxForm p {
+        font-size: 14px;
+    }
+    .boxForm a:link, .boxForm a:visited {
+        font-size: 12px;
+    }
+}

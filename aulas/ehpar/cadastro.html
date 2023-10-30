@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Aplicação</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/general.css">
+</head>
+
+<body class="registration">
+    <main>
+        <section class="boxCenter">
+            <div class="boxForm">
+                <img src="img/logo.png">
+                <h1>Cadastro</h1>
+                <form method="post" action="php/file.php">
+                    <input type="text" name="user" id="user" placeholder="Usuário">
+                    <input type="password" name="pwd" id="pwd" placeholder="Senha">
+                    <input type="password" name="confPwd" id="confPwd" placeholder="Confirmar senha">
+                    <input type="button" id="btnNewUser" value="Cadastrar">
+                </form>
+                <p><a href="index.html">Entrar!</a></p>
+            </div>
+        </section>
+    </main>
+
+    <audio id="somJogo" controls>
+        <source id="musica" type="audio/mpeg">
+    </audio>
+
+    <script src="js/audio.js"></script>
+
+    <script src="js/jAlertWifi.js"></script>
+    <script src="js/cadastro.js"></script>
+</body>
+
+</html>
