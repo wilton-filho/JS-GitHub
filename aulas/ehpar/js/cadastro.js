@@ -16,14 +16,22 @@ window.addEventListener("load", function () {
         pwd = document.getElementById("pwd");
         confPwd = document.getElementById("confPwd");
 
-        if (!user.value) 
+        if (!user.value) {
+            tocarAudio("audio/msgErro.mp3"); 
             alertWifi(`Usuário em branco. Informe um usuário`, false, 0, "img/logo.png", 30, "");
-        else if (!pwd.value)
+        }
+        else if (!pwd.value) {
+            tocarAudio("audio/msgErro.mp3");  
             alertWifi(`Senha em branco. Informe uma senha`, false, 0, "img/logo.png", 30, "");
-        else if (!confPwd.value)
+        }
+        else if (!confPwd.value) {
+            tocarAudio("audio/msgErro.mp3"); 
             alertWifi(`Confirmar senha em branco. Informe uma senha`, false, 0, "img/logo.png", 30, "");
-        else if (pwd.value != confPwd.value)
+        }
+        else if (pwd.value != confPwd.value) {
+            tocarAudio("audio/msgErro.mp3"); 
             alertWifi(`Senha e confirmar senha diferentes. Tente novamente!`, false, 0, "img/logo.png", 30, "");
+        }
         else cadastrarNovoUsuario(user.value, pwd.value);
     }
 
@@ -43,7 +51,10 @@ window.addEventListener("load", function () {
             localStorage.setItem("usuarios",JSON.stringify(usuarios));
             alertWifi(`Usuário cadastrado com sucesso!`, false, 0, "img/logo.png", 30, "");
         }
-        else alertWifi(`Esse usuário já existe. Tente outro!`, false, 0, "img/logo.png", 30, "");
+        else  {
+            tocarAudio("audio/msgErro.mp3"); 
+            alertWifi(`Esse usuário já existe. Tente outro!`, false, 0, "img/logo.png", 30, "");
+        }
     }
 
     // Verifica se já há um usuario cadastrado com o mesmo nome informado na interface 

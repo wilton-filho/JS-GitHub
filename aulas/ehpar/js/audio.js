@@ -1,5 +1,5 @@
 function tocarAudio(tocar) {
-    var audio = document.querySelector("audio");
+    var audio = document.getElementById("somJogo");
     var source = audio.querySelector("source");
 
     audio.pause();

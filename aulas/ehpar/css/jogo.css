@@ -147,6 +147,30 @@ span {
     /* font-size: 20px !important; */
     font-size: 6vw !important;
 }
+.shakeNumber {
+    animation-name: shakeNumber;
+    animation-duration: 0.15s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shakeNumber {
+    0% {
+        transform: rotate(-15deg);
+    }
+    25% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(15deg);
+    }
+    75% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-15deg);
+    }
+}
+
 @media screen and (min-width: 768px) {
     .container {
         flex-direction: row;
