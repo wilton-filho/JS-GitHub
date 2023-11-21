@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label>Data de nascimento:</label>
+        <input type="text" id="nascimento" onKeyPress="inserirMascara('nascimento','xx/xx/xxxx')" placeholder="__/__/____">
+
+        <br><label>CEP:</label>
+        <input type="text" id="cep" onKeyPress="inserirMascara('cep','xx.xxx-xxx')" placeholder="__.___-____">
+
+        <br><label>Telefone celular:</label>
+        <input type="text" id="fone" onKeyPress="inserirMascara('fone','(xx) xxxxx-xxxx')" placeholder="(00) 00000-0000">
+      </form>
+    <script src="js/script.js"></script>
+    <script src="js/jMaskWiFi.js"></script>
+</body>
+</html>
