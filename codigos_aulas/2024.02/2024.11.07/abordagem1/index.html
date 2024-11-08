@@ -1,0 +1,30 @@
+<!-- 
+ 1ª Abordagem: o manipulador de eventos (Ex: onclick) é inserido no código HTML 
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button 
+        onclick="exibirMsg('Você clicou em mim!')"
+        onmouseenter="exibirMsg('Você colocou o mouse aqui!')"
+        onmouseleave="exibirMsg('Você já vai?')"
+        >Clique em mim!
+    </button>
+    
+    <!-- <button 
+        onmouseenter="exibirMsg('Você colocou o mouse aqui!')">Coloque o cursor do mouse sobre mim!
+    </button>
+
+    <button 
+        onmouseleave="exibirMsg('Você já vai?')">Coloque o mouse aqui e tire-o!     
+    </button> -->
+
+    <script src="js/script.js"></script>
+</body>
+</html>
