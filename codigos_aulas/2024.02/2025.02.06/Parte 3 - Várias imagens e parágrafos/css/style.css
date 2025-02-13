@@ -1,0 +1,6 @@
+.boxInterna {
+    float: left;
+    width: 150px;
+    border: 1px solid black;
+    text-align: center;
+}
