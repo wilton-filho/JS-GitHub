@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+    margin:0px;
+    padding:0px;
+}
+
+p {
+    color: red;
+    font-family: arial;
+    font-size: 50px;
+    text-decoration: underline;
+}
+
+.txtAzul {
+    color: blue;
+}
