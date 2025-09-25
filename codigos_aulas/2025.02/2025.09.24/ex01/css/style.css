@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+section {
+    text-align: center;
+    margin: 20px;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.container > div {
+    margin: 20px;
+    width: 300px;
+    justify-items: center;
+    border:3px solid black;
+    border-radius: 100px;
+    padding: 30px;
+}
+.container p {
+    padding: 10px;
+}
+
+.container p:nth-child(1) {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.resultadoEleicao {
+    color: red;
+    font-size: 25px;
+}
+
+#btnGerarResultado {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#btnGerarResultado:hover {
+    background-color: rgb(53, 177, 53);
+}
