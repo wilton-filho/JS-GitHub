@@ -1,0 +1,1 @@
+A partir de um baralho contendo 27 cartas, exibir no console pares de 8 cartas aleatórias.
