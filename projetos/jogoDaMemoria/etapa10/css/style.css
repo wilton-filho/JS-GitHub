@@ -1,0 +1,10 @@
+#tabuleiro {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+img {
+    cursor: pointer;
+    color:rgb(249, 197, 197);
+}
